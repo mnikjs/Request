@@ -1,5 +1,6 @@
 package app.requeststudy.Request.controller;
 
+import app.requeststudy.Request.dto.Req;
 import app.requeststudy.Request.dto.UserRequest;
 import app.requeststudy.Request.dto.UserResponse;
 import app.requeststudy.Request.service.RestTemplateService;
@@ -23,4 +24,21 @@ public class ApiController {
         return restTemplateService.hello(userRequest);
     }
 
+    @GetMapping("/post")
+    public UserResponse postHello(){
+        System.out.println("/api/client/post");
+        return restTemplateService.post();
+    }
+
+    @GetMapping("/postMain")
+    public UserResponse postMain(){
+        System.out.println("/api/client/postMain");
+        return restTemplateService.postMain();
+    }
+
+    @GetMapping("/postExchange")
+    public Req<UserResponse> postExchange(){
+        System.out.println("/api/client/postMain");
+        return restTemplateService.genericExchange();
+    }
 }
